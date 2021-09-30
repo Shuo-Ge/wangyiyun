@@ -1,0 +1,86 @@
+{
+  "id": "2790622",
+  "name": "网易云2",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1488892",
+      "name": "播放",
+      "font_class": "bofang2",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "1488905",
+      "name": "暂停",
+      "font_class": "zanting",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "2767712",
+      "name": "随机播放",
+      "font_class": "icon-",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "7417086",
+      "name": "上一首",
+      "font_class": "shangyishou",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "7417092",
+      "name": "下一首",
+      "font_class": "xiayishou",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "9402962",
+      "name": "爱心",
+      "font_class": "changyongicon-",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "13137519",
+      "name": "歌词未点击",
+      "font_class": "geciweidianji",
+      "unicode": "e727",
+      "unicode_decimal": 59175
+    },
+    {
+      "icon_id": "14620466",
+      "name": "播放",
+      "font_class": "bofang1",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "18661855",
+      "name": "单曲循环",
+      "font_class": "hanhan-01-01",
+      "unicode": "e6ae",
+      "unicode_decimal": 59054
+    },
+    {
+      "icon_id": "18963837",
+      "name": "顺序播放",
+      "font_class": "shunxubofang",
+      "unicode": "e6a1",
+      "unicode_decimal": 59041
+    },
+    {
+      "icon_id": "18965481",
+      "name": "列表循环",
+      "font_class": "liebiaoxunhuan",
+      "unicode": "e6a2",
+      "unicode_decimal": 59042
+    }
+  ]
+}
