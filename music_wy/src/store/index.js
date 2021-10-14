@@ -17,10 +17,9 @@ export default new Vuex.Store({
             },
             ar: [0]
         }],
-
         playCurrentIndex: 0,
-        lyric: ""
-
+        lyric: "",
+        paused: true
     },
     // getters: {
     //     lyricList() {
@@ -49,6 +48,9 @@ export default new Vuex.Store({
         },
         setPlayIndex(state, value) {
             state.playCurrentIndex = value
+        },
+        setPlayPaused(state, value) {
+
         },
         // setLyric(state, value) {
         //     state.lyric = value

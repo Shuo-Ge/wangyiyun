@@ -1,6 +1,7 @@
 <template>
   <!-- 歌单 -->
-  <div>
+  <div v-if="MusicList[0]">
+    <!-- 精品歌单 -->
     <div
       class="bg"
       :style="{ backgroundImage: `url(${MusicList[0].coverImgUrl})` }"
@@ -15,6 +16,7 @@
         <p class="detal">{{ MusicList[0].description }}</p>
       </div>
     </div>
+    <!-- 歌单标签 -->
     <div class="nav">
       <div class="left">
         <el-button round
@@ -27,11 +29,12 @@
           size="mini"
           v-for="(item, index) in tag"
           :key="index"
-          @click="selectTag(index)"
+          @click="selectTag(index), checkedTag()"
           >{{ item.name }}</el-button
         >
       </div>
     </div>
+    <!-- 歌单列表 -->
     <div class="musicList">
       <router-link
         :to="{ path: '/listview', query: { id: item.id } }"
@@ -79,7 +82,24 @@ export default {
   methods: {
     selectTag(index) {
       this.changeName = this.tag[index].name;
+      // 根据标签改变歌单
+      // this.getMusicList(this.changeName);
       // console.log(this.tag[index].name);
+    },
+    // 获取歌单
+    async getMusicList(cat) {
+      const { data: res } = await this.$http.get(`/top/playlist?cat${cat}`);
+      if (res.code == 200) {
+        this.MusicList = res.playlists;
+        console.log(this.MusicList);
+        this.$message.success("获取歌单成功");
+      } else {
+        this.$message.error("获取歌单失败");
+      }
+    },
+    // 将改变的标签值传给父组件
+    checkedTag() {
+      this.$emit("tagChange", this.changeName);
     },
     // down() {
     //   this.offset++;

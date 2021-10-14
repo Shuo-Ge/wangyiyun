@@ -10,14 +10,17 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '',
     redirect: 'home'
   },
   {
     path: '/home',
     component: Home,
-    redirect: 'find',
     children: [
+      {
+        path: '',
+        redirect: '/find',
+      },
       {
         path: '/find',
         component: Find
@@ -25,17 +28,17 @@ const routes = [
         path: '/listview',
         component: ListView
       },
-
       {
         path: '/musicmv',
-        comments: MusicMv
+        component: MusicMv
       }
+
     ]
-  }, {
+  },
+  {
     path: '/playmusiclist',
     component: PlayMusicList
-  }
-
+  },
 ]
 const router = new VueRouter({
   routes,

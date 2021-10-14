@@ -119,6 +119,7 @@ export default {
       this.index = index;
       this.$store.commit("setPlaylist", this.playlist.tracks);
       this.$store.commit("setPlayIndex", this.index);
+      // this.$store.commit("setPlayPaused", true);
     },
   },
 };
@@ -132,6 +133,9 @@ export default {
 .el-table {
   width: 100%;
   margin: auto;
+}
+.el-table-column {
+  cursor: pointer;
 }
 .index {
   font-size: 12px;

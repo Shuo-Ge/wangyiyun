@@ -38,9 +38,10 @@
           :MusicList="MusicList"
           :tag="tag"
           v-if="selectindex == 'musiclist'"
+          @tagChange="changeTag($event)"
         ></MusicList>
         <!-- 排行榜 -->
-        <RankingList></RankingList>
+        <RankingList v-if="selectindex == 'rankinglist'"></RankingList>
       </div>
     </div>
   </div>
@@ -67,6 +68,12 @@ export default {
       },
       // 保存歌单标签
       tag: {},
+      cat: "华语",
+      // // 保存排行榜信息
+      // rankinglist: {
+      //   coverImgUrl: "",
+      // },
+      // lists: [],
     };
   },
   components: {
@@ -78,16 +85,21 @@ export default {
   methods: {
     async selectIndex(index) {
       this.selectindex = index;
+      // 歌单获取信息
       if (this.selectindex == "musiclist") {
         // 获取歌单信息
         this.getMusicList();
         // 获取歌单分类
         this.getMusicClass();
       }
+      if (this.selectindex == "rankinglist") {
+        // 获取排行榜信息
+        // this.getRankingList();
+      }
     },
     // 获取歌单
-    async getMusicList() {
-      const { data: res } = await this.$http.get(`/top/playlist`);
+    async getMusicList(cat = this.cat) {
+      const { data: res } = await this.$http.get(`/top/playlist?cat=${cat}`);
       if (res.code == 200) {
         this.MusicList = res.playlists;
         console.log(this.MusicList);
@@ -104,6 +116,21 @@ export default {
         console.log(this.tag);
       }
     },
+    // 改变标签名
+    changeTag(tag) {
+      this.getMusicList(tag);
+      console.log(tag);
+    },
+    // 获取排行榜
+    // async getRankingList() {
+    //   const { data: res } = await this.$http.get(`/toplist/detail`);
+    //   if (res.code == 200) {
+    //     console.log(res);
+    //     this.rankinglist = res;
+    //     this.lists = this.rankinglist.list.slice(0, 4);
+    //     console.log(this.lists);
+    //   }
+    // },
   },
 };
 </script>

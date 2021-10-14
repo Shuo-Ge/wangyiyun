@@ -21,7 +21,7 @@
           <li><i class="iconfont">&#xe6a2;</i></li>
           <li><i class="iconfont">&#xe603;</i></li>
           <li @click="play">
-            <i v-if="paused" class="iconfont">&#xe60c;</i>
+            <i v-if="$store.state.paused" class="iconfont">&#xe60c;</i>
             <i v-else class="iconfont">&#xe606;</i>
           </li>
           <li><i class="iconfont">&#xe602;</i></li>
@@ -37,7 +37,6 @@
     <PlayMusicList
       @back="show = !show"
       v-show="show"
-      :paused="paused"
       :play="play"
       class="playMusicList"
       :comment="comment"
@@ -52,7 +51,7 @@ export default {
   data() {
     return {
       // 播放
-      paused: true,
+      // paused: true,
       show: false,
       // 获取所用评论用户信息
       comment: {},
@@ -85,10 +84,10 @@ export default {
     play() {
       if (this.$refs.audio.paused) {
         this.$refs.audio.play();
-        this.paused = false;
+        this.$store.state.paused = false;
       } else {
         this.$refs.audio.pause();
-        this.paused = true;
+        this.$store.state.paused = true;
       }
     },
     async getComment() {

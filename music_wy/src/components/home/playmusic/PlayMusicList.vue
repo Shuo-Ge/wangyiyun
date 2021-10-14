@@ -8,7 +8,7 @@
       <div class="left">
         <img
           class="oneimg"
-          :class="{ oneimg2: !paused }"
+          :class="{ oneimg2: !$store.state.paused }"
           src="@/assets/img/needle-ab.png"
           alt=""
         />
@@ -69,7 +69,7 @@
           <li><i class="iconfont">&#xe6a2;</i></li>
           <li><i class="iconfont">&#xe603;</i></li>
           <li @click="play">
-            <i v-if="paused" class="iconfont">&#xe60c;</i>
+            <i v-if="$store.state.paused" class="iconfont">&#xe60c;</i>
             <i v-else class="iconfont">&#xe606;</i>
           </li>
           <li><i class="iconfont">&#xe602;</i></li>
@@ -84,7 +84,7 @@
 import { mapState, mapMutations } from "vuex";
 import Footer from "@/components/home/Footer";
 export default {
-  props: ["paused", "play", "comment", "lyric"],
+  props: ["play", "comment", "lyric"],
   data() {
     return {
       // 获取所用评论用户信息
@@ -141,6 +141,13 @@ export default {
 </script>
 
 <style scoped>
+::-webkit-scrollbar {
+  width: 40px;
+}
+::-webkit-slider-thumb {
+  background: linear-gradient(#00dbde 0%, #fc00ff 100%);
+  border-radius: 8px;
+}
 .body {
   width: 100%;
   height: 100%;
@@ -161,6 +168,10 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0px 15px 10px -11px #ccc;
+  border-radius: 15px;
+  padding: 10px;
 }
 .oneimg {
   position: absolute;
