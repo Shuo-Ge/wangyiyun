@@ -12,9 +12,17 @@
           src="@/assets/img/needle-ab.png"
           alt=""
         />
-        <img class="twoimg" src="@/assets/img/jiaopian.png" alt="" />
         <img
-          class="threeimg"
+          :class="['twoimg', 'disc', $store.state.paused ? '' : 'autoRotate']"
+          src="@/assets/img/jiaopian.png"
+          alt=""
+        />
+        <img
+          :class="[
+            'threeimg',
+            'cover',
+            $store.state.paused ? '' : 'autoRotate',
+          ]"
           :src="playlist[playCurrentIndex].al.picUrl"
           alt=""
         />
@@ -208,7 +216,7 @@ export default {
 .threeimg {
   position: absolute;
   top: 106px;
-  left: 56px;
+  left: 65px;
   z-index: 0;
   width: 190px;
   height: 190px;
@@ -295,6 +303,7 @@ export default {
   border: 1px solid #ccc;
   text-align: center;
   line-height: 100px;
+  user-select: none;
 }
 .centerContrall ul {
   width: 300px;
@@ -307,5 +316,27 @@ export default {
 }
 .center-top li i {
   font-size: 20px;
+  cursor: pointer;
+}
+@keyframes Rotate {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+/* 旋转的类名 */
+.autoRotate {
+  animation-name: Rotate;
+  animation-iteration-count: infinite;
+  /* animation-play-state: paused; */
+  animation-timing-function: linear;
+  animation-duration: 5s;
+}
+/* 是否正在播放 */
+.player_con.playing .disc,
+.player_con.playing .cover {
+  animation-play-state: running;
 }
 </style>

@@ -4,8 +4,8 @@
     <!-- 头部 -->
     <el-header>
       <div>
-        <img src="@/assets/img/logo.png" alt="" />
-        <span>网易云音乐</span>
+        <!-- <img src="@/assets/img/logo.png" alt="" /> -->
+        <span class="logoName">小拐音乐</span>
         <div class="back">
           <el-button @click="back" icon="el-icon-arrow-left" circle></el-button>
           <el-button icon="el-icon-arrow-right" circle></el-button>
@@ -97,7 +97,8 @@ export default {
   z-index: 8;
   /* padding-bottom: 60px; */
   width: 100%;
-  background: #ec4141;
+  /* background: #ec4141; */
+  background-image: linear-gradient(to right, #ead6ee, #a0f1ea);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -108,6 +109,10 @@ export default {
   display: flex;
   align-items: center;
   margin-left: 15px;
+}
+.logoName {
+  font-size: 30px;
+  color: #fff;
 }
 .back {
   margin-left: 100px;
@@ -154,9 +159,11 @@ export default {
   margin-bottom: 60px;
 }
 .el-main {
+  /* width: 100%; */
   position: absolute;
   left: 200px;
   padding-bottom: 60px;
+  /* background-image: linear-gradient(#9fa5d5, #e8f5c8); */
 }
 .el-footer {
   position: fixed;

@@ -15,11 +15,13 @@ export default new Vuex.Store({
                 picUrl: "http://p3.music.126.net/tS9xr_DxycG0U6ty6g__mw==/109951165898808895.jpg",
                 pic_str: "109951165898808895"
             },
-            ar: [0]
+            ar: [0],
+            dt: ''
         }],
         playCurrentIndex: 0,
         lyric: "",
-        paused: true
+        paused: true,
+        flag: false
     },
     // getters: {
     //     lyricList() {
@@ -50,7 +52,7 @@ export default new Vuex.Store({
             state.playCurrentIndex = value
         },
         setPlayPaused(state, value) {
-
+            state.flag = value
         },
         // setLyric(state, value) {
         //     state.lyric = value

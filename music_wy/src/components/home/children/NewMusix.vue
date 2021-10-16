@@ -54,6 +54,7 @@ export default {
       this.MusicDetail = res;
       this.$store.commit("setPlaylist", this.MusicDetail.songs);
       this.$store.commit("setPlayIndex", 0);
+      this.$store.commit("setPlayPaused", true);
       console.log(res);
     },
     changeIndex(index) {

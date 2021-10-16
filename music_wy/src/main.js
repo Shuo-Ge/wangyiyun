@@ -64,6 +64,24 @@ Vue.filter('changeValue', function (num) {
   return res;
 
 })
+router.beforeEach((to, from, next) => {
+
+  // chrome
+
+  document.body.scrollTop = 0
+
+  // firefox
+
+  document.documentElement.scrollTop = 0
+
+  // safari
+
+  window.pageYOffset = 0
+
+  next()
+
+})
+
 new Vue({
   router,
   store,

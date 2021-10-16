@@ -9,6 +9,8 @@
     <MeSend></MeSend>
     <!-- 最新音乐 -->
     <NewMusic></NewMusic>
+    <!-- 推荐mv -->
+    <RecmmentMv></RecmmentMv>
   </div>
 </template>
 
@@ -21,12 +23,15 @@ import MusicList from "../children/MusilcList.vue";
 import MeSend from "../children/MeSend.vue";
 // 导入最新音乐
 import NewMusic from "../children/NewMusix.vue";
+// 导入推荐mv
+import RecmmentMv from "../children/RecmmentMv";
 export default {
   components: {
     Swiper,
     MusicList,
     MeSend,
     NewMusic,
+    RecmmentMv,
   },
 };
 </script>

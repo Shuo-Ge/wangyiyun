@@ -42,6 +42,8 @@
         ></MusicList>
         <!-- 排行榜 -->
         <RankingList v-if="selectindex == 'rankinglist'"></RankingList>
+        <!-- 歌手 -->
+        <Singer></Singer>
       </div>
     </div>
   </div>
@@ -55,6 +57,8 @@ import Customization from "@/components/home/homenav/Customization";
 import MusicList from "@/components/home/homenav/MusicList";
 // 排行榜
 import RankingList from "@/components/home/homenav/RankingList";
+// 歌手
+import Singer from "@/components/home/homenav/Singer";
 export default {
   data() {
     return {
@@ -81,7 +85,9 @@ export default {
     Customization,
     MusicList,
     RankingList,
+    Singer,
   },
+
   methods: {
     async selectIndex(index) {
       this.selectindex = index;
@@ -141,7 +147,8 @@ export default {
   margin: 50px auto;
 }
 .auto {
-  margin-left: 200px;
+  width: 1663px;
+  /* margin-left: 200px; */
 }
 .el-menu {
   position: fixed;

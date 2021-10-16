@@ -41,7 +41,7 @@
           }}</el-tag>
         </div>
         <div class="biaoqian">
-          歌曲:<span>{{ playlist.tracks.length }}</span
+          歌曲:<span>{{ trackIdslist.length }}</span
           >&nbsp;&nbsp;播放:&nbsp;<span>{{
             playlist.playCount | changeValue
           }}</span>
@@ -56,6 +56,7 @@
 
 <script>
 export default {
+  props: ["trackIdslist"],
   data() {
     return {
       id: "",

@@ -18,10 +18,10 @@
     <!-- 表格 -->
     <el-table
       v-if="selectindex == 'muscilist'"
-      :data="playlist.tracks"
+      :data="trackIdslist"
       stripe
       style="width: 100%"
-      @row-click="plays"
+      @row-dblclick="plays"
       :row-class-name="tableRowClassName"
     >
       <el-table-column class="index" type="index" label=""> </el-table-column>
@@ -82,7 +82,7 @@
 
 <script>
 export default {
-  props: ["playlist"],
+  props: ["playlist", "trackIdslist"],
   data() {
     return {
       id: "",
@@ -117,9 +117,9 @@ export default {
     plays(row) {
       var index = row.index;
       this.index = index;
-      this.$store.commit("setPlaylist", this.playlist.tracks);
+      this.$store.commit("setPlaylist", this.trackIdslist);
       this.$store.commit("setPlayIndex", this.index);
-      // this.$store.commit("setPlayPaused", true);
+      this.$store.commit("setPlayPaused", true);
     },
   },
 };
@@ -133,6 +133,7 @@ export default {
 .el-table {
   width: 100%;
   margin: auto;
+  user-select: none;
 }
 .el-table-column {
   cursor: pointer;
